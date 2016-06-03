@@ -81,9 +81,9 @@ func activate_headerbar(sender: UnsafeMutablePointer<Void>, data: UnsafeMutableP
 
 let c_functor: @convention(c) (UnsafeMutablePointer<Void>, UnsafeMutablePointer<Void>) -> Void = activate_headerbar.self
 let g_callback = unsafeBitCast(c_functor, to: GCallback.self)
-
-
-let app = gtk_application_new("de.aschulz.test", G_APPLICATION_FLAGS_NONE)
-g_signal_connect_data(app, "activate", g_callback, app, nil, G_CONNECT_AFTER)
-g_application_run(UnsafeMutablePointer(app), 0, nil)
-g_object_unref(app)
+let app = SWGtkApplication(applicationID: "de.aschulz.test", applicationFlag: .None)
+app.connect(signal: "activate") {
+    print("lol")
+}
+//g_signal_connect_data(app.cptr, "activate", g_callback, nil, nil, G_CONNECT_AFTER)
+app.run()
