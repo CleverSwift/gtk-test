@@ -8,7 +8,7 @@ import Gtk
 
 class SWGObject {
     var ptrGObject: UnsafeMutablePointer<Void>
-    var signalConnections = [UInt: SWCallbackContainer]()
+    var signalConnections = [(UInt, SWCallbackContainer)]()
 
     init(_ ptr: UnsafeMutablePointer<Void>) {
         ptrGObject = ptr
@@ -20,9 +20,7 @@ class SWGObject {
 
         // Create c function pointer which unwraps void* to container and calls callback
         let _functor: @convention(c) (UnsafeMutablePointer<Void>, UnsafeMutablePointer<Void>) -> Void = { sender, data in
-            print("Unpacking container...")
-            let con = Unmanaged<SWCallbackContainer>.fromOpaque(data).takeUnretainedValue()
-            print("Success. Calling callback...")
+            let con = unsafeBitCast(data, to: SWCallbackContainer.self)
             con.callback()
         }
 
@@ -35,8 +33,6 @@ class SWGObject {
         let handlerID = g_signal_connect_data(ptrGObject, signal, gcallback, containerptr, nil, SWGConnectFlags.None.rawValue)
 
         // Save container in member variable to prevent it from deallocating
-        signalConnections[handlerID] = container
-
-        print("handlerID \(handlerID) for signal \(signal) assigned")
+        signalConnections.append((handlerID, container))
     }
 }

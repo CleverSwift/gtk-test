@@ -68,10 +68,12 @@ class SWGtkHeaderBar: SWGtkContainer {
     }
 
     func packStart(_ widget: SWGtkWidget) {
+        widgets.append(widget)
         gtk_header_bar_pack_start(ptrGtkHeaderBar, widget.ptrGtkWidget)
     }
 
     func packEnd(_ widget: SWGtkWidget) {
+        widgets.append(widget)
         gtk_header_bar_pack_end(ptrGtkHeaderBar, widget.ptrGtkWidget)
     }
 }

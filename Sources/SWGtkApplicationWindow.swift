@@ -12,5 +12,6 @@ class SWGtkApplicationWindow: SWGtkWindow {
     init(app: SWGtkApplication) {
         ptrGtkApplicationWindow = unsafeBitCast(gtk_application_window_new(app.ptrGtkApplication), to: UnsafeMutablePointer<GtkApplicationWindow>.self)
         super.init(unsafeBitCast(ptrGtkApplicationWindow, to: UnsafeMutablePointer<GtkWindow>.self))
+        app.windows.append(self)
     }
 }

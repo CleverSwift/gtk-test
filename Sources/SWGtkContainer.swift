@@ -8,6 +8,7 @@ import Gtk
 
 class SWGtkContainer: SWGtkWidget {
     var ptrGtkContainer: UnsafeMutablePointer<GtkContainer>
+    var widgets = [SWGtkWidget]()
 
     init(_ ptr: UnsafeMutablePointer<GtkContainer>) {
         ptrGtkContainer = ptr
@@ -15,6 +16,7 @@ class SWGtkContainer: SWGtkWidget {
     }
 
     func addWidget(_ widget: SWGtkWidget) {
+        widgets.append(widget)
         gtk_container_add(ptrGtkContainer, widget.ptrGtkWidget)
     }
 }

@@ -4,6 +4,7 @@
 
 import Gtk
 
+let app = SWGtkApplication(id: "de.aschulz.test", flag: .None)
 
 app.connect(signal: "activate") {
     let window = SWGtkApplicationWindow(app: app)
@@ -35,7 +36,7 @@ app.connect(signal: "activate") {
 
     let buttonBox = SWGtkButtonBox(orientation: .Horizontal)
     window.addWidget(buttonBox)
-    let button2 = SWGtkButton(label: "Hello world!")
+    let button2 = SWGtkButton(label: "Destroy window")
     button2.connect(signal: "clicked") {
         window.destroy()
     }
