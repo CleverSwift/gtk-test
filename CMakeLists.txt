@@ -37,4 +37,28 @@ endif()
 add_custom_target(gtk-test
     COMMAND swift build ${LIBS}
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-    SOURCES Package.swift Sources/main.swift)
+    SOURCES
+        Package.swift
+        Sources/main.swift
+        Sources/SWCallbackContainer.swift
+        Sources/SWGApplication.swift
+        Sources/SWGApplicationFlags.swift
+        Sources/SWGConnectFlags.swift
+        Sources/SWGIcon.swift
+        Sources/SWGObject.swift
+        Sources/SWGThemedIcon.swift
+        Sources/SWGtkApplication.swift
+        Sources/SWGtkApplicationWindow.swift
+        Sources/SWGtkBin.swift
+        Sources/SWGtkBox.swift
+        Sources/SWGtkButton.swift
+        Sources/SWGtkButtonBox.swift
+        Sources/SWGtkContainer.swift
+        Sources/SWGtkHeaderBar.swift
+        Sources/SWGtkIconSize.swift
+        Sources/SWGtkImage.swift
+        Sources/SWGtkMisc.swift
+        Sources/SWGtkOrientation.swift
+        Sources/SWGtkStyleContext.swift
+        Sources/SWGtkWidget.swift
+        Sources/SWGtkWindow.swift)

@@ -1,0 +1,14 @@
+//
+// Created by Andreas Schulz on 04.06.16.
+//
+
+import Foundation
+
+
+class SWCallbackContainer {
+    var callback: () -> Void
+
+    init(callback: () -> Void) {
+        self.callback = callback
+    }
+}

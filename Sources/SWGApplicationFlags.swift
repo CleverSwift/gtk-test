@@ -27,7 +27,9 @@ struct SWGApplicationFlags : OptionSet {
     static let HandlesCommandLine = SWGApplicationFlags(rawValue: G_APPLICATION_HANDLES_COMMAND_LINE)
     static let SendEnvironment = SWGApplicationFlags(rawValue: G_APPLICATION_SEND_ENVIRONMENT)
     static let NonUnique = SWGApplicationFlags(rawValue: G_APPLICATION_NON_UNIQUE)
-    static let CanOverrideAppId = SWGApplicationFlags(rawValue: G_APPLICATION_CAN_OVERRIDE_APP_ID)
+    #if os(Linux)
+        static let CanOverrideAppId = SWGApplicationFlags(rawValue: G_APPLICATION_CAN_OVERRIDE_APP_ID)
+    #endif
 }
 
 extension GApplicationFlags: IntegerLiteralConvertible {

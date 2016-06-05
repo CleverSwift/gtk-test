@@ -9,6 +9,9 @@ DerivedData
 ## Jetbrains stuff
 .idea/
 
+## Mac stuff
+.DS_Store
+
 ## Various settings
 *.pbxuser
 !default.pbxuser
