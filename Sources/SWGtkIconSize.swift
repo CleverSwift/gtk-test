@@ -29,7 +29,7 @@ struct SWGtkIconSize : OptionSet {
     static let Dialog = SWGtkIconSize(rawValue: GTK_ICON_SIZE_DIALOG)
 }
 
-extension GtkIconSize: IntegerLiteralConvertible {
+extension GtkIconSize: ExpressibleByIntegerLiteral {
     public typealias IntegerLiteralType = Int
 
     public init(integerLiteral: IntegerLiteralType) {

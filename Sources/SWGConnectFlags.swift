@@ -25,7 +25,7 @@ struct SWGConnectFlags : OptionSet {
     static let Swapped = SWGConnectFlags(rawValue: G_CONNECT_SWAPPED)
 }
 
-extension GConnectFlags: IntegerLiteralConvertible {
+extension GConnectFlags: ExpressibleByIntegerLiteral {
     public typealias IntegerLiteralType = Int
 
     public init(integerLiteral: IntegerLiteralType) {

@@ -17,7 +17,7 @@ class SWGtkWidget: SWGObject {
 
     init(_ ptr: UnsafeMutablePointer<GtkWidget>) {
         ptrGtkWidget = ptr
-        super.init(unsafeBitCast(ptrGtkWidget, to: UnsafeMutablePointer<Void>.self))
+        super.init(UnsafeMutableRawPointer(ptrGtkWidget))
     }
 
     func showAll() {

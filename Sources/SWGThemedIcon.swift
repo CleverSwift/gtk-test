@@ -14,6 +14,6 @@ class SWGThemedIcon: SWGIcon {
     }
 
     deinit {
-        g_object_unref(unsafeBitCast(ptrSWGIcon, to: UnsafeMutablePointer<Void>.self))
+        g_object_unref(unsafeBitCast(ptrSWGIcon, to: UnsafeMutableRawPointer.self))
     }
 }

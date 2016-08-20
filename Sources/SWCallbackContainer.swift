@@ -8,7 +8,7 @@ import Foundation
 class SWCallbackContainer {
     var callback: () -> Void
 
-    init(callback: () -> Void) {
+    init(callback: @escaping () -> Void) {
         self.callback = callback
     }
 }

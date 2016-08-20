@@ -11,7 +11,7 @@ class SWGtkStyleContext: SWGObject {
 
     init(_ ptr: UnsafeMutablePointer<GtkStyleContext>) {
         ptrGtkStyleContext = ptr
-        super.init(unsafeBitCast(ptrGtkStyleContext, to: UnsafeMutablePointer<Void>.self))
+        super.init(unsafeBitCast(ptrGtkStyleContext, to: UnsafeMutableRawPointer.self))
     }
 
     func addClass(_ cls: String) {

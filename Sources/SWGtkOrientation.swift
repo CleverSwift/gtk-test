@@ -24,7 +24,7 @@ struct SWGtkOrientation : OptionSet {
     static let Vertical = SWGtkOrientation(rawValue: GTK_ORIENTATION_VERTICAL)
 }
 
-extension GtkOrientation: IntegerLiteralConvertible {
+extension GtkOrientation: ExpressibleByIntegerLiteral {
     public typealias IntegerLiteralType = Int
 
     public init(integerLiteral: IntegerLiteralType) {

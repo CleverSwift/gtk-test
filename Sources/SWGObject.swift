@@ -7,19 +7,19 @@ import Gtk
 
 
 class SWGObject {
-    var ptrGObject: UnsafeMutablePointer<Void>
+    var ptrGObject: UnsafeMutableRawPointer
     var signalConnections = [(UInt, SWCallbackContainer)]()
 
-    init(_ ptr: UnsafeMutablePointer<Void>) {
+    init(_ ptr: UnsafeMutableRawPointer) {
         ptrGObject = ptr
     }
 
-    func connect(signal: String, callback: () -> Void) {
+    func connect(signal: String, callback: @escaping () -> Void) {
         // Allocate new container for callback
         let container = SWCallbackContainer(callback: callback)
 
         // Create c function pointer which unwraps void* to container and calls callback
-        let _functor: @convention(c) (UnsafeMutablePointer<Void>, UnsafeMutablePointer<Void>) -> Void = { sender, data in
+        let _functor: @convention(c) (UnsafeMutableRawPointer, UnsafeMutableRawPointer) -> Void = { sender, data in
             let con = unsafeBitCast(data, to: SWCallbackContainer.self)
             con.callback()
         }
@@ -28,7 +28,7 @@ class SWGObject {
         let gcallback = unsafeBitCast(_functor, to: GCallback.self)
 
         // Obtain pointer to container, cast that pointer to void*
-        let containerptr = unsafeBitCast(unsafeAddress(of: container), to: UnsafeMutablePointer<Void>.self)
+        let containerptr = Unmanaged<SWCallbackContainer>.passUnretained(container).toOpaque()
 
         let handlerID = g_signal_connect_data(ptrGObject, signal, gcallback, containerptr, nil, SWGConnectFlags.None.rawValue)
 

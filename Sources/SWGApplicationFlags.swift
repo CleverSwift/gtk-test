@@ -32,7 +32,7 @@ struct SWGApplicationFlags : OptionSet {
     #endif
 }
 
-extension GApplicationFlags: IntegerLiteralConvertible {
+extension GApplicationFlags: ExpressibleByIntegerLiteral {
     public typealias IntegerLiteralType = Int
 
     public init(integerLiteral: IntegerLiteralType) {
