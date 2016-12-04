@@ -20,14 +20,6 @@ class SWGApplication: SWGObject {
     }
 
     func run() {
-        var argv = CommandLine.arguments.map {
-            strdup($0)
-        }
-
-        g_application_run(ptrGApplication, CommandLine.argc, &argv)
-
-        for ptr in argv {
-            free(ptr)
-        }
+        g_application_run(ptrGApplication, CommandLine.argc, CommandLine.unsafeArgv)
     }
 }
