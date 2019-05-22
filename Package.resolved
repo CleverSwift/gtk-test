@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "gtk-modulemap-linux",
+        "repositoryURL": "https://github.com/Longhanks/gtk-modulemap-linux",
+        "state": {
+          "branch": "master",
+          "revision": "058a122809b67b44563c3e2119aa912334f57800",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

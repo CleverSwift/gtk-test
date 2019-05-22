@@ -18,6 +18,7 @@ if(LINUX)
         -Xcc -I/usr/include/gdk-pixbuf-2.0
         -Xcc -I/usr/include/atk-1.0
         -Xcc -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+        -Xcc -I/usr/lib/glib-2.0/include
         )
 endif()
 
@@ -39,26 +40,26 @@ add_custom_target(gtk-test
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     SOURCES
         Package.swift
-        Sources/main.swift
-        Sources/SWCallbackContainer.swift
-        Sources/SWGApplication.swift
-        Sources/SWGApplicationFlags.swift
-        Sources/SWGConnectFlags.swift
-        Sources/SWGIcon.swift
-        Sources/SWGObject.swift
-        Sources/SWGThemedIcon.swift
-        Sources/SWGtkApplication.swift
-        Sources/SWGtkApplicationWindow.swift
-        Sources/SWGtkBin.swift
-        Sources/SWGtkBox.swift
-        Sources/SWGtkButton.swift
-        Sources/SWGtkButtonBox.swift
-        Sources/SWGtkContainer.swift
-        Sources/SWGtkHeaderBar.swift
-        Sources/SWGtkIconSize.swift
-        Sources/SWGtkImage.swift
-        Sources/SWGtkMisc.swift
-        Sources/SWGtkOrientation.swift
-        Sources/SWGtkStyleContext.swift
-        Sources/SWGtkWidget.swift
-        Sources/SWGtkWindow.swift)
+        Sources/gtk-test/main.swift
+        Sources/gtk-test/SWCallbackContainer.swift
+        Sources/gtk-test/SWGApplication.swift
+        Sources/gtk-test/SWGApplicationFlags.swift
+        Sources/gtk-test/SWGConnectFlags.swift
+        Sources/gtk-test/SWGIcon.swift
+        Sources/gtk-test/SWGObject.swift
+        Sources/gtk-test/SWGThemedIcon.swift
+        Sources/gtk-test/SWGtkApplication.swift
+        Sources/gtk-test/SWGtkApplicationWindow.swift
+        Sources/gtk-test/SWGtkBin.swift
+        Sources/gtk-test/SWGtkBox.swift
+        Sources/gtk-test/SWGtkButton.swift
+        Sources/gtk-test/SWGtkButtonBox.swift
+        Sources/gtk-test/SWGtkContainer.swift
+        Sources/gtk-test/SWGtkHeaderBar.swift
+        Sources/gtk-test/SWGtkIconSize.swift
+        Sources/gtk-test/SWGtkImage.swift
+        Sources/gtk-test/SWGtkMisc.swift
+        Sources/gtk-test/SWGtkOrientation.swift
+        Sources/gtk-test/SWGtkStyleContext.swift
+        Sources/gtk-test/SWGtkWidget.swift
+        Sources/gtk-test/SWGtkWindow.swift)

@@ -1,6 +1,4 @@
-//
-// Created by aschulz on 04.05.16.
-//
+// swift-tools-version:4.2
 
 import PackageDescription
 
@@ -15,6 +13,9 @@ import PackageDescription
 let package = Package(
     name: "gtk-test",
     dependencies: [
-        .Package(url: gtk, majorVersion: 1)
+        .package(url: gtk, .branch("master"))
+    ],
+    targets: [
+        .target(name: "gtk-test")
     ]
 )
